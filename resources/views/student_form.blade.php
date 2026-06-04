@@ -266,9 +266,14 @@
             <h2 class="font-display" style="font-size: 32px; font-weight: 900; color: var(--fg); margin-bottom: 8px;">Student Added</h2>
             <p style="color: var(--fg-muted); font-size: 15px; max-width: 360px; margin: 0 auto 8px;" id="successMsg"></p>
             <p style="color: var(--gold); font-size: 13px; margin-bottom: 32px;" id="successCourse"></p>
-            <button onclick="resetForm()" style="padding: 12px 32px; background: var(--accent-dim); border: 1.5px solid var(--accent); color: var(--accent); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s;">
-                Add Another Student
-            </button>
+            <div style="display:flex; gap:12px; justify-content:center;">
+                <button onclick="resetForm()" style="padding: 12px 32px; background: var(--accent-dim); border: 1.5px solid var(--accent); color: var(--accent); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s;">
+                    Add Another Student
+                </button>
+                <a href="{{ route('students.index') }}" style="padding: 12px 32px; background: linear-gradient(135deg, var(--accent), #1aac82); color: var(--bg); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700; display:inline-flex; align-items:center; gap:8px; text-decoration:none;">
+                    <i class="fas fa-list"></i> View Students
+                </a>
+            </div>
         </div>
     </div>
 
@@ -335,7 +340,14 @@
                 <!-- Header -->
                 <div style="margin-bottom: 32px; animation: fadeInUp 0.5s ease both;">
                     <h2 class="font-display" style="font-size: 32px; font-weight: 900; margin-bottom: 8px;">Southern de Oro Philippines College Student</h2>
-                    <p style="color: var(--fg-muted); font-size: 14px;">Enter student details to add them to the enrollment system</p>
+                    <div style="display:flex; align-items:center; gap:12px; justify-content:space-between;">
+                        <p style="color: var(--fg-muted); font-size: 14px; margin:0;">Enter student details to add them to the enrollment system</p>
+                        <div>
+                            <a href="{{ route('students.index') }}" class="btn-submit" style="padding:10px 14px; width:auto; font-size:14px;">
+                                <i class="fas fa-list" style="margin-right:8px;"></i>View Students
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <form id="enrollForm" method="POST" action="{{ route('student.store') }}" novalidate autocomplete="off">
